@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Books" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="aQI-lE-ccT" id="Jyu-E8-wcT"/>
+                <outlet property="nameTextField" destination="aQI-lE-ccT" id="F4z-s5-XgC"/>
+                <outlet property="passwordTextField" destination="Nl7-LP-32H" id="dew-NF-esN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

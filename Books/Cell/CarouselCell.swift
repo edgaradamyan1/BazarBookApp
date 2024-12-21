@@ -9,8 +9,8 @@ import UIKit
 
 class CarouselCell: UICollectionViewCell {
   @IBOutlet weak var titleText: UILabel!
-
   @IBOutlet weak var descriptionText: UILabel!
+  
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
