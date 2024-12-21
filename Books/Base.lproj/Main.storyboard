@@ -8,20 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Onboarding Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Books" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="OnboardingController" customModule="Books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstPageImage" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-dF-CVn">
-                                <rect key="frame" x="35" y="173" width="323" height="323"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="nf1-dF-CVn" secondAttribute="height" multiplier="1:1" id="4TB-Uh-429"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kXX-dE-zEC">
                                 <rect key="frame" x="33" y="666" width="327" height="118"/>
                                 <subviews>
@@ -36,7 +30,7 @@
                                             <color key="baseBackgroundColor" red="0.31764706970000001" green="0.25490197539999998" blue="0.52941179279999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="urG-iD-Ytw"/>
+                                            <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LTc-NK-muZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXN-Ud-GDx">
@@ -61,10 +55,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="438-yu-QIR">
-                                <rect key="frame" x="5" y="516" width="383" height="130"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LNG-eG-1bV">
+                                <rect key="frame" x="0.0" y="103" width="393" height="513.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H7z-s9-gk8">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="82F-h2-1Bn">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -72,25 +66,34 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qJ0-5Z-QZg">
+                                <rect key="frame" x="160" y="621.33333333333337" width="73" height="25.666666666666629"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" red="0.32941177490000001" green="0.26666668059999998" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="pageControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DKn-fP-l7O"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kXX-dE-zEC" firstAttribute="top" secondItem="438-yu-QIR" secondAttribute="bottom" constant="20" id="5q8-YC-Df7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="438-yu-QIR" secondAttribute="trailing" constant="5" id="719-Br-xLJ"/>
-                            <constraint firstItem="438-yu-QIR" firstAttribute="top" secondItem="nf1-dF-CVn" secondAttribute="bottom" constant="20" id="Eno-JA-c9n"/>
+                            <constraint firstItem="LNG-eG-1bV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DVs-TZ-taW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LNG-eG-1bV" secondAttribute="trailing" id="Gsq-Hp-z1X"/>
+                            <constraint firstItem="qJ0-5Z-QZg" firstAttribute="top" secondItem="LNG-eG-1bV" secondAttribute="bottom" constant="5" id="HLk-Ta-bJH"/>
+                            <constraint firstItem="qJ0-5Z-QZg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="Mff-oj-hJb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kXX-dE-zEC" secondAttribute="trailing" constant="33" id="S29-1q-K40"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nf1-dF-CVn" secondAttribute="trailing" constant="35" id="UOF-2g-XA9"/>
-                            <constraint firstItem="438-yu-QIR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="bES-XV-cTS"/>
+                            <constraint firstItem="kXX-dE-zEC" firstAttribute="top" secondItem="qJ0-5Z-QZg" secondAttribute="bottom" constant="19" id="Smt-pD-FPe"/>
+                            <constraint firstItem="LNG-eG-1bV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UbO-9i-C4D"/>
                             <constraint firstItem="kXX-dE-zEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="gfK-cs-1HZ"/>
-                            <constraint firstItem="nf1-dF-CVn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="kiH-X8-qFq"/>
-                            <constraint firstItem="nf1-dF-CVn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="nhj-Co-gwD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qJ0-5Z-QZg" secondAttribute="trailing" constant="160" id="jWj-qS-ns4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kXX-dE-zEC" secondAttribute="bottom" constant="34" id="x5Z-f1-VSM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cxs-Qb-nyk"/>
                     <connections>
-                        <outlet property="collectionView" destination="438-yu-QIR" id="E3F-MA-yie"/>
+                        <outlet property="collectionView" destination="LNG-eG-1bV" id="VPz-ud-vg2"/>
+                        <outlet property="pageControl" destination="qJ0-5Z-QZg" id="2K7-wp-cAK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,7 +120,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="firstPageImage" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

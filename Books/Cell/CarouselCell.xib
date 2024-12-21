@@ -10,66 +10,63 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Ff-ih-o8u" customClass="CarouselCell" customModule="Books" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="198"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="563"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QcH-G6-rGA">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="198"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="563"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ePb-eE-TPS">
-                        <rect key="frame" x="15" y="15" width="363" height="100"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstPageImage" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-gS-r7s">
+                        <rect key="frame" x="36" y="30" width="320" height="320"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tNL-gS-r7s" secondAttribute="height" multiplier="1:1" id="RiO-OR-cyJ"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wek-8E-Fo9">
+                        <rect key="frame" x="5" y="360" width="383" height="141.66666666666663"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGL-DS-76g">
-                                <rect key="frame" x="0.0" y="0.0" width="363" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now reading books will be easier" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpA-ig-Jdm">
+                                <rect key="frame" x="2" y="0.0" width="379" height="28.666666666666668"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="A3Y-Wr-9dy"/>
+                                    <constraint firstAttribute="width" constant="378.67000000000002" id="Qbp-gP-mwU"/>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="ygM-c1-jxs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lV5-hE-S6H">
-                                <rect key="frame" x="0.0" y="35" width="363" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZx-tH-gO0">
+                                <rect key="frame" x="45.666666666666657" y="36.666666666666686" width="292" height="105"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="EIT-5a-OLy"/>
+                                    <constraint firstAttribute="width" constant="292" id="f6U-Hn-CJU"/>
+                                    <constraint firstAttribute="height" constant="105" id="lYw-3x-SGA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.65098041299999998" green="0.65098041299999998" blue="0.65098041299999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="cGL-DS-76g" firstAttribute="top" secondItem="ePb-eE-TPS" secondAttribute="top" id="7uK-f9-Y4b"/>
-                            <constraint firstItem="cGL-DS-76g" firstAttribute="leading" secondItem="ePb-eE-TPS" secondAttribute="leading" id="PCK-Dr-efk"/>
-                            <constraint firstItem="lV5-hE-S6H" firstAttribute="leading" secondItem="ePb-eE-TPS" secondAttribute="leading" id="Rj2-3t-eog"/>
-                            <constraint firstAttribute="bottom" secondItem="lV5-hE-S6H" secondAttribute="bottom" id="SbZ-o5-tZf"/>
-                            <constraint firstAttribute="trailing" secondItem="lV5-hE-S6H" secondAttribute="trailing" id="mC4-aY-ZJg"/>
-                            <constraint firstAttribute="width" constant="363" id="nlk-Ba-OcI"/>
-                            <constraint firstItem="lV5-hE-S6H" firstAttribute="top" secondItem="cGL-DS-76g" secondAttribute="bottom" constant="5" id="syT-aH-85L"/>
-                            <constraint firstAttribute="height" constant="100" id="xCb-2p-ZhR"/>
-                            <constraint firstAttribute="trailing" secondItem="cGL-DS-76g" secondAttribute="trailing" id="xiU-iF-q4Y"/>
-                        </constraints>
                     </stackView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ybi-ZT-Ujz">
-                        <rect key="frame" x="160" y="162" width="73" height="26"/>
-                    </pageControl>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ybi-ZT-Ujz" firstAttribute="leading" secondItem="QcH-G6-rGA" secondAttribute="leading" constant="160" id="CY0-Wg-Zky"/>
-                    <constraint firstItem="ePb-eE-TPS" firstAttribute="leading" secondItem="QcH-G6-rGA" secondAttribute="leading" constant="15" id="CeA-ep-jas"/>
-                    <constraint firstAttribute="trailing" secondItem="Ybi-ZT-Ujz" secondAttribute="trailing" constant="160" id="Gyx-54-h1A"/>
-                    <constraint firstAttribute="bottom" secondItem="Ybi-ZT-Ujz" secondAttribute="bottom" constant="10" id="Rcv-ab-Rde"/>
-                    <constraint firstItem="ePb-eE-TPS" firstAttribute="top" secondItem="QcH-G6-rGA" secondAttribute="top" constant="15" id="cyJ-Bj-TO9"/>
-                    <constraint firstItem="Ybi-ZT-Ujz" firstAttribute="top" secondItem="ePb-eE-TPS" secondAttribute="bottom" constant="47" id="edB-st-zYr"/>
-                    <constraint firstAttribute="trailing" secondItem="ePb-eE-TPS" secondAttribute="trailing" constant="15" id="j5S-eK-jhE"/>
+                    <constraint firstItem="Wek-8E-Fo9" firstAttribute="top" secondItem="tNL-gS-r7s" secondAttribute="bottom" constant="10" id="AHs-M5-uux"/>
+                    <constraint firstItem="tNL-gS-r7s" firstAttribute="leading" secondItem="QcH-G6-rGA" secondAttribute="leading" constant="36" id="H0X-TO-5Ab"/>
+                    <constraint firstItem="Wek-8E-Fo9" firstAttribute="leading" secondItem="QcH-G6-rGA" secondAttribute="leading" constant="5" id="Kps-YG-Q0v"/>
+                    <constraint firstAttribute="trailing" secondItem="Wek-8E-Fo9" secondAttribute="trailing" constant="5" id="s4t-cu-9U1"/>
+                    <constraint firstAttribute="trailing" secondItem="tNL-gS-r7s" secondAttribute="trailing" constant="37" id="sJm-EL-mgd"/>
+                    <constraint firstItem="tNL-gS-r7s" firstAttribute="top" secondItem="QcH-G6-rGA" secondAttribute="top" constant="30" id="ufA-fY-Fve"/>
                 </constraints>
             </collectionViewCellContentView>
-            <size key="customSize" width="393" height="198"/>
+            <size key="customSize" width="399" height="676"/>
             <connections>
-                <outlet property="descriptionText" destination="lV5-hE-S6H" id="b0H-xj-fPg"/>
-                <outlet property="titleText" destination="cGL-DS-76g" id="heq-BC-4Op"/>
+                <outlet property="descriptionText" destination="PZx-tH-gO0" id="LbT-3d-GdG"/>
+                <outlet property="onboardingImage" destination="tNL-gS-r7s" id="iMb-kb-6dm"/>
+                <outlet property="titleText" destination="RpA-ig-Jdm" id="rHn-Ay-cgV"/>
             </connections>
-            <point key="canvasLocation" x="170.22900763358777" y="-69.718309859154928"/>
+            <point key="canvasLocation" x="167.17557251908397" y="-80.633802816901408"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="firstPageImage" width="320" height="320"/>
+    </resources>
 </document>
