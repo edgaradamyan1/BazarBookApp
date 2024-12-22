@@ -13,6 +13,7 @@
                 <outlet property="emailTextField" destination="aQI-lE-ccT" id="Jyu-E8-wcT"/>
                 <outlet property="nameTextField" destination="aQI-lE-ccT" id="F4z-s5-XgC"/>
                 <outlet property="passwordTextField" destination="Nl7-LP-32H" id="dew-NF-esN"/>
+                <outlet property="registerButtonOutlet" destination="bKe-e2-b9y" id="5dD-lt-vYi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -110,6 +111,9 @@
                     <buttonConfiguration key="configuration" style="filled" title="Register">
                         <color key="baseBackgroundColor" red="0.32941177490000001" green="0.26666668059999998" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="T2I-lq-6BL"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="exE-dV-bl3">
                     <rect key="frame" x="90" y="593" width="213" height="24"/>
@@ -140,6 +144,9 @@
                                 </attributedString>
                                 <color key="baseForegroundColor" red="0.32941177490000001" green="0.26666668059999998" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="signInButton:" destination="-1" eventType="touchUpInside" id="LXR-8c-BB4"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

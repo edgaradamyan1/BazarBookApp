@@ -52,6 +52,9 @@
                                             <color key="baseForegroundColor" red="0.32941177490000001" green="0.26666668059999998" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="baseBackgroundColor" red="0.98039215800000001" green="0.97647058959999999" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="SignInController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjK-t0-FrJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
