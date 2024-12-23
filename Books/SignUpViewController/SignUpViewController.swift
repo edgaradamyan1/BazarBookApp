@@ -9,10 +9,12 @@ import UIKit
 
 class SignUpViewController: UIViewController,UITextFieldDelegate {
   var users: [User] = []
+  var timer = Timer()
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var registerButtonOutlet: UIButton!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,6 +22,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     emailTextField.delegate = self
     passwordTextField.delegate = self
     registerButtonOutlet.isEnabled = false
+    activityIndicator.isHidden = true
     
   
   }
@@ -49,29 +52,52 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
   }
 
   @IBAction func registerButton(_ sender: UIButton) {
-    let userDefault = UserDefaults.standard
-    userDefault.set(nameTextField.text, forKey: "name")
-    userDefault.set(emailTextField.text, forKey: "email")
-    userDefault.set(passwordTextField.text, forKey: "password")
+   
+    guard let name = nameTextField.text, !name.isEmpty,
+          let password = passwordTextField.text, !password.isEmpty,
+          let email = emailTextField.text, !email.isEmpty else{
+      return
+    }
+    
+    activityIndicator.isHidden = false
+    activityIndicator.startAnimating()
+    timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { timer in
+      self.activityIndicator.stopAnimating()
+      self.activityIndicator.isHidden = true
+    })
+    
+    let newUser = User(name: name, email: email, password: password)
+    saveUsersToUserDefaults(newUser)
+         
+  }
+  
+  func saveUsersToUserDefaults(_ user: User){
+    var users = fetchUsersFromUserDefault()
+    users.append(user)
+    if let enodedData = try? JSONEncoder().encode(users){
+      UserDefaults.standard.set(enodedData, forKey: "users")
+    }
+    print("Saved users: \(users)")
+  }
+  
+  
+  func fetchUsersFromUserDefault() -> [User]{
+    guard let data = UserDefaults.standard.data(forKey: "users"),
+          let users = try? JSONDecoder().decode([User].self, from: data) else{
+      
+      return []
+    }
+    return users
   }
   
   @IBAction func signInButton(_ sender: UIButton) {
     let vc = SignInViewController(nibName: "SignInViewController", bundle: nil)
     navigationController?.pushViewController(vc, animated: true)
+
+    
   }
   
   
-  func createUser(){
-      let userDefaults = UserDefaults.standard
-      guard let userName = userDefaults.string(forKey: "name"),
-            let email = userDefaults.string(forKey: "email"),
-            let password = userDefaults.string(forKey: "password") else{
-        return
-      }
-      
-      let user = User(name: userName, email: email, password: password)
-      users.append(user)
-    }
   
   
 }

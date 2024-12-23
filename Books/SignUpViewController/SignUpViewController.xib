@@ -10,8 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Books" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="3wf-mn-m5D" id="HS7-Zy-Iuf"/>
                 <outlet property="emailTextField" destination="aQI-lE-ccT" id="Jyu-E8-wcT"/>
-                <outlet property="nameTextField" destination="aQI-lE-ccT" id="F4z-s5-XgC"/>
+                <outlet property="nameTextField" destination="AH0-AR-xRL" id="QiG-8V-9JG"/>
                 <outlet property="passwordTextField" destination="Nl7-LP-32H" id="dew-NF-esN"/>
                 <outlet property="registerButtonOutlet" destination="bKe-e2-b9y" id="5dD-lt-vYi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -167,10 +168,15 @@
                         </label>
                     </subviews>
                 </stackView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3wf-mn-m5D">
+                    <rect key="frame" x="173" y="395" width="47" height="40"/>
+                    <color key="color" red="0.32941177490000001" green="0.26666668059999998" blue="0.53725492949999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="3wf-mn-m5D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="173" id="13l-UJ-9xY"/>
                 <constraint firstItem="dRF-tx-4vK" firstAttribute="top" secondItem="exE-dV-bl3" secondAttribute="bottom" constant="125" id="1fP-ke-JWj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dRF-tx-4vK" secondAttribute="trailing" constant="60" id="3pU-Rx-bjj"/>
                 <constraint firstItem="dRF-tx-4vK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="9B3-hm-GxJ"/>
@@ -185,10 +191,13 @@
                 <constraint firstItem="xJ6-17-R8D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Oz9-gC-6Pk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="exE-dV-bl3" secondAttribute="trailing" constant="90" id="S0m-DL-Bj1"/>
                 <constraint firstItem="Lad-JI-8Sl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="WdD-Mn-qiK"/>
+                <constraint firstItem="3wf-mn-m5D" firstAttribute="top" secondItem="xJ6-17-R8D" secondAttribute="bottom" constant="78" id="YVo-Jz-Dtg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xJ6-17-R8D" secondAttribute="trailing" constant="25" id="YyD-z1-VxL"/>
                 <constraint firstItem="bKe-e2-b9y" firstAttribute="top" secondItem="1bh-ga-GCC" secondAttribute="bottom" constant="25" id="cVk-qh-kZz"/>
                 <constraint firstItem="1bh-ga-GCC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="cXl-T5-40M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3wf-mn-m5D" secondAttribute="trailing" constant="173" id="iuO-jt-liT"/>
                 <constraint firstItem="pqg-Nh-yBn" firstAttribute="top" secondItem="xJ6-17-R8D" secondAttribute="bottom" constant="15" id="j4Q-Lu-Tfs"/>
+                <constraint firstItem="bKe-e2-b9y" firstAttribute="top" secondItem="3wf-mn-m5D" secondAttribute="bottom" constant="85" id="oIE-JB-n0V"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pqg-Nh-yBn" secondAttribute="trailing" constant="25" id="qve-jk-KXk"/>
                 <constraint firstItem="pqg-Nh-yBn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="vtY-8q-38U"/>
                 <constraint firstItem="exE-dV-bl3" firstAttribute="top" secondItem="bKe-e2-b9y" secondAttribute="bottom" constant="25" id="wdl-3h-MCl"/>

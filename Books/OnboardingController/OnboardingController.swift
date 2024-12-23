@@ -28,6 +28,7 @@ class OnboardingController: UIViewController {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.register(UINib(nibName: "CarouselCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCell")
+    //collectionView.isPagingEnabled = true
     
     startCarousel()
     
