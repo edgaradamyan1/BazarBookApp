@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2485A1612D1C4EB9003E3890 /* BookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2485A15F2D1C4EB9003E3890 /* BookModel.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		2485A1602D1C4EB9003E3890 /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
 		2498E5362D15856600FAF061 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,6 +50,7 @@
 		2498E52D2D15856600FAF061 = {
 			isa = PBXGroup;
 			children = (
+				2485A15F2D1C4EB9003E3890 /* BookModel.xcdatamodeld */,
 				2498E5382D15856600FAF061 /* Books */,
 				2498E5372D15856600FAF061 /* Products */,
 			);
@@ -132,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2485A1612D1C4EB9003E3890 /* BookModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2485A15F2D1C4EB9003E3890 /* BookModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2485A1602D1C4EB9003E3890 /* BookModel.xcdatamodel */,
+			);
+			currentVersion = 2485A1602D1C4EB9003E3890 /* BookModel.xcdatamodel */;
+			path = BookModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2498E52E2D15856600FAF061 /* Project object */;
 }

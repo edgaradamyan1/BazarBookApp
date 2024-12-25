@@ -34,6 +34,13 @@ class OnboardingController: UIViewController {
     
     
   }
+  @IBAction func testButton(_ sender: UIButton) {
+    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
+    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+    
+ 
+  }
   
   func startCarousel(){
     timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in

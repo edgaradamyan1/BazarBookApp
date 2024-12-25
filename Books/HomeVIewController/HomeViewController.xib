@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Books" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomCollectionView" destination="LnC-HI-ODk" id="V3L-s6-9Z0"/>
+                <outlet property="topCollectionView" destination="2S6-s0-07R" id="BS1-mU-MB5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2S6-s0-07R">
+                    <rect key="frame" x="0.0" y="159" width="393" height="190"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="6Qc-VC-sa4"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F5a-wd-HlZ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LnC-HI-ODk">
+                    <rect key="frame" x="0.0" y="424" width="393" height="244"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mfr-7K-ldA">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-hz-CUl">
+                    <rect key="frame" x="30" y="698" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="MDK-O5-ffw"/>
+                        <constraint firstAttribute="height" constant="80" id="RJU-9q-B6b"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Add Book">
+                                <attributes>
+                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                    <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <color key="baseBackgroundColor" red="0.31764706970000001" green="0.25490197539999998" blue="0.52941179279999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="l5j-hz-CUl" firstAttribute="top" secondItem="LnC-HI-ODk" secondAttribute="bottom" constant="30" id="RCp-uG-0ft"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LnC-HI-ODk" secondAttribute="bottom" constant="150" id="W4o-3C-nO5"/>
+                <constraint firstItem="LnC-HI-ODk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="X85-P0-L0s"/>
+                <constraint firstItem="2S6-s0-07R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cJF-cY-xXP"/>
+                <constraint firstItem="2S6-s0-07R" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lVc-cB-JOR"/>
+                <constraint firstItem="l5j-hz-CUl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="n7P-i9-xWU"/>
+                <constraint firstItem="LnC-HI-ODk" firstAttribute="top" secondItem="2S6-s0-07R" secondAttribute="bottom" constant="75" id="oRh-bh-yOj"/>
+                <constraint firstItem="LnC-HI-ODk" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pN2-6a-RLY"/>
+                <constraint firstItem="2S6-s0-07R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="xn6-es-ONz"/>
+            </constraints>
+            <point key="canvasLocation" x="72.51908396946564" y="22.535211267605636"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
