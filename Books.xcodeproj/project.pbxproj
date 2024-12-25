@@ -12,7 +12,7 @@
 
 /* Begin PBXFileReference section */
 		2485A1602D1C4EB9003E3890 /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
-		2498E5362D15856600FAF061 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2498E5362D15856600FAF061 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Books.app; path = "/Users/edgaradamyan/Documents/Swift/Developer/Lessons/Books/build/Debug-iphoneos/Books.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,16 +52,7 @@
 			children = (
 				2485A15F2D1C4EB9003E3890 /* BookModel.xcdatamodeld */,
 				2498E5382D15856600FAF061 /* Books */,
-				2498E5372D15856600FAF061 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		2498E5372D15856600FAF061 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2498E5362D15856600FAF061 /* Books.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,7 +105,7 @@
 			mainGroup = 2498E52D2D15856600FAF061;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2498E5372D15856600FAF061 /* Products */;
+			productRefGroup = 2498E52D2D15856600FAF061;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

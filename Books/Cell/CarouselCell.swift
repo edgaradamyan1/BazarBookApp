@@ -8,6 +8,7 @@
 import UIKit
 
 class CarouselCell: UICollectionViewCell {
+  
   @IBOutlet weak var onboardingImage: UIImageView!
   @IBOutlet weak var titleText: UILabel!
   @IBOutlet weak var descriptionText: UILabel!

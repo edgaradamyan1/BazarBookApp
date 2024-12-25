@@ -9,17 +9,17 @@ import UIKit
 
 class SignInViewController: UIViewController {
   var createdUsers: [User] = []
-
+  
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var errorText: UILabel!
   
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     createdUsers = fetchUsersFromUserDefault()
-
-    }
-
+    
+  }
+  
   @IBAction func signUpButton(_ sender: UIButton) {
     let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
     navigationController?.pushViewController(vc, animated: true)
@@ -35,20 +35,14 @@ class SignInViewController: UIViewController {
     if users.first(where: {$0.email == email && $0.password == password}) != nil{
       print("Login successful")
       errorText.text = ""
+      
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let vc = storyboard.instantiateViewController(identifier: "TabBarController")
+      (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
     }else{
       errorText.text = "False Login or Password"
-      
-//
-//      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//      let vc = storyboard.instantiateViewController(identifier: "TabBarController")
-//      (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-//      
-     
     }
-    
-    
-    }
-  
+  }
   
   func fetchUsersFromUserDefault() -> [User]{
     guard let data = UserDefaults.standard.data(forKey: "users"),
@@ -56,10 +50,8 @@ class SignInViewController: UIViewController {
       return []
     }
     return users
-      
-    
   }
-  }
-  
+}
+
 
 

@@ -9,18 +9,17 @@
 
 class OnboardingController: UIViewController {
   
- 
   @IBOutlet weak var pageControl: UIPageControl!
   @IBOutlet weak var collectionView: UICollectionView!
   
-  let titleText: [String] = ["Now reading books will be easier", "Your Bookish Soulmate Awaits", "Start Your Adventure"]
-  let textDescription: [String] = [
+  private let titleText: [String] = ["Now reading books will be easier", "Your Bookish Soulmate Awaits", "Start Your Adventure"]
+  private let textDescription: [String] = [
     " Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.",
     "Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.",
     "Ready to embark on a quest for inspiration and knowledge? Your adventure begins now. Let's go!"]
-  let images: [String] = ["image1","image2","image3"]
-  var timer = Timer()
-  var currentIndex = 0
+  private let images: [String] = ["image1","image2","image3"]
+  private var timer = Timer()
+  private var currentIndex = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,8 +37,19 @@ class OnboardingController: UIViewController {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
     (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-    
- 
+  }
+  @IBAction func SignInController(_ sender: UIButton) {
+    let vc = SignInViewController(nibName: "SignInViewController", bundle: nil)
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  @IBAction func signUpButton(_ sender: UIButton) {
+    let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  @IBAction func pageControlChanged(_ sender: UIPageControl) {
+    currentIndex = sender.currentPage
+    let indexPath = IndexPath(row: currentIndex, section: 0)
+    collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
   }
   
   func startCarousel(){
@@ -61,26 +71,8 @@ class OnboardingController: UIViewController {
   
   func stopCaroucel(){
     timer.invalidate()
-    
-    
   }
-  @IBAction func SignInController(_ sender: UIButton) {
-    let vc = SignInViewController(nibName: "SignInViewController", bundle: nil)
-    navigationController?.pushViewController(vc, animated: true)
-  }
-  @IBAction func signUpButton(_ sender: UIButton) {
-    let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-    navigationController?.pushViewController(vc, animated: true)
-  }
-  @IBAction func pageControlChanged(_ sender: UIPageControl) {
-    currentIndex = sender.currentPage
-    let indexPath = IndexPath(row: currentIndex, section: 0)
-    collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-  }
-  
 }
-
-
 
 extension OnboardingController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

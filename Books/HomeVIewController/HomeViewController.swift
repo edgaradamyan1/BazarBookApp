@@ -11,13 +11,9 @@ import CoreData
 class HomeViewController: UIViewController {
   
   let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: nil, action: #selector(searchBook))
+  let book: [Book] = []
   let notificationButton = UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: nil, action: #selector(pushNotification))
   let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-  
-  
-  
-  
-
   
   @IBOutlet weak var topCollectionView: UICollectionView!
   @IBOutlet weak var bottomCollectionView: UICollectionView!
@@ -25,29 +21,36 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Home"
+    setNavigationItem()
+    configureTableVIew()
+  }
   
-    navigationItem.leftBarButtonItem = searchButton
-    navigationItem.rightBarButtonItem = notificationButton
-    navigationItem.leftBarButtonItem?.tintColor = .black
-    navigationItem.rightBarButtonItem?.tintColor = .black
+  func configureTableVIew(){
     topCollectionView.register(UINib(nibName: "TopCollectionVIewCell", bundle: nil), forCellWithReuseIdentifier: "TopCollectionVIewCell")
     bottomCollectionView.register(UINib(nibName: "BottomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BottomCollectionViewCell")
     topCollectionView.delegate = self
     topCollectionView.dataSource = self
     bottomCollectionView.dataSource = self
     bottomCollectionView.delegate = self
+  }
+  
+  func setNavigationItem() {
+    navigationItem.leftBarButtonItem = searchButton
+    navigationItem.rightBarButtonItem = notificationButton
+    navigationItem.leftBarButtonItem?.tintColor = .black
+    navigationItem.rightBarButtonItem?.tintColor = .black
+  }
+  
+  @objc func searchBook() {
     
   }
   
-  
-  @objc func searchBook(){
+  @objc func pushNotification() {
     
   }
   
-  @objc func pushNotification(){
-    
-  }
   @IBAction func addBook(_ sender: UIButton) {
+    
   }
   
 }
