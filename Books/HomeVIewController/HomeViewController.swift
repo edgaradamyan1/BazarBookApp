@@ -12,8 +12,7 @@ class HomeViewController: UIViewController {
   
   private let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: nil, action: #selector(searchBook))
   private let notificationButton = UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: nil, action: #selector(pushNotification))
-  let book: [Book] = []
-  let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+  var books: [Book] = []
   
   @IBOutlet weak var topCollectionView: UICollectionView!
   @IBOutlet weak var bottomCollectionView: UICollectionView!
@@ -21,8 +20,11 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Home"
+ 
     setNavigationItem()
     configureTableVIew()
+    books = CoreDataManager.shared.fetchBooks()
+    topCollectionView.reloadData()
   }
   
   func configureTableVIew() {
@@ -50,6 +52,34 @@ class HomeViewController: UIViewController {
   }
   
   @IBAction func addBook(_ sender: UIButton) {
+    let alert = UIAlertController(title: "Add Your Book", message: nil, preferredStyle: .alert)
+    alert.addTextField { textField in
+      textField.placeholder = "Title"
+    }
+    alert.addTextField { textField in
+      textField.placeholder = "Author"
+    }
+    alert.addTextField { textField in
+      textField.placeholder = "Image"
+    }
+    alert.addTextField { textField in
+      textField.placeholder = "Price"
+    }
+    
+    alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
+      guard let self = self else { return }
+      guard let title = alert.textFields?[0].text,
+            let author = alert.textFields?[1].text,
+            let price = alert.textFields?[2].text,
+            let image = alert.textFields?[3].text else { return }
+      
+      let book = CoreDataManager.shared.addBook(title: title, author: author, price: price, image: image)
+      self.books.append(book)
+      self.topCollectionView.reloadData()
+    }))
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    
+    present(alert, animated: true)
     
   }
   
@@ -58,7 +88,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if collectionView == topCollectionView{
-      return 5
+      return books.count
     }else if collectionView == bottomCollectionView{
       return 5
     }else{
@@ -70,7 +100,8 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     if collectionView == topCollectionView{
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopCollectionVIewCell", for: indexPath)
       if let cell = cell as? TopCollectionVIewCell{
-        cell.priceOfBook.text = "$5"
+        let book = books[indexPath.item]
+        cell.configure(book: book)
         return cell
       }
     } else if collectionView == bottomCollectionView {
@@ -103,4 +134,18 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     vc.modalPresentationStyle = .popover
     present(vc, animated: true)
   }
+  func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath) -> [UIContextualAction]? {
+    let deleteAction = UIContextualAction(style: .destructive, title: "delete") { [weak self] (action, view, completionHandler) in
+      guard let self = self else { return }
+      let deletedBook =  self.books[indexPath.item]
+      self.books.remove(at: indexPath.item)
+      CoreDataManager.shared.deleteBooks(book: deletedBook)
+      completionHandler(true)
+      collectionView.deleteItems(at: <#T##[IndexPath]#>)
+      topCollectionView.reloadData()
+    }
+    
+    return [deleteAction]
+  }
+  
 }
