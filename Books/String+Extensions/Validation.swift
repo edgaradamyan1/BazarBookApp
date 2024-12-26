@@ -10,8 +10,9 @@ import Foundation
 extension String{
   
   func isValidPassword() -> Bool{
+    
     let patern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{7,}"
-    do{
+    do {
       let regex = try NSRegularExpression(pattern: patern)
       let range = NSRange(self.startIndex..<self.endIndex,in: self)
       return regex.firstMatch(in: self, range: range) != nil

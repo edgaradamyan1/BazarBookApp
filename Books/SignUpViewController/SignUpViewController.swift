@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
          
   }
   
-  private func saveUsersToUserDefaults(_ user: User){
+  private func saveUsersToUserDefaults(_ user: User) {
     var users = fetchUsersFromUserDefault()
     users.append(user)
     if let enodedData = try? JSONEncoder().encode(users){
@@ -79,7 +79,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
   }
   
   
-  func fetchUsersFromUserDefault() -> [User]{
+  func fetchUsersFromUserDefault() -> [User] {
     guard let data = UserDefaults.standard.data(forKey: "users"),
           let users = try? JSONDecoder().decode([User].self, from: data) else{
       

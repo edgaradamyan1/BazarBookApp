@@ -44,7 +44,7 @@ class SignInViewController: UIViewController {
     }
   }
   
-  func fetchUsersFromUserDefault() -> [User]{
+  func fetchUsersFromUserDefault() -> [User] {
     guard let data = UserDefaults.standard.data(forKey: "users"),
           let users = try? JSONDecoder().decode([User].self, from: data) else{
       return []

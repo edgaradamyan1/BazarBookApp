@@ -53,7 +53,7 @@ class OnboardingController: UIViewController {
     collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
   }
   
-  func startCarousel(){
+  func startCarousel() {
     timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in
       guard let self = self else { return }
       self.currentIndex += 1
@@ -70,7 +70,7 @@ class OnboardingController: UIViewController {
     }
   }
   
-  func stopCaroucel(){
+  func stopCaroucel() {
     timer.invalidate()
   }
 }

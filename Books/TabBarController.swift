@@ -10,18 +10,14 @@ import UIKit
 class TabBarController: UITabBarController {
   
   let homeViewController = UINavigationController(rootViewController: HomeViewController(nibName: "HomeViewController", bundle: nil))
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   
-      homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
-      
-      setViewControllers([homeViewController], animated: true)
-      tabBar.tintColor = UIColor(named: "customViolet")
-      
-
-    }
-
-
-
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+    
+    setViewControllers([homeViewController], animated: true)
+    tabBar.tintColor = UIColor(named: "customViolet")
+    
+  }
 }

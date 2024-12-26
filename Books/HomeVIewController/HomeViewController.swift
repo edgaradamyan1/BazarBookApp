@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     configureTableVIew()
   }
   
-  func configureTableVIew(){
+  func configureTableVIew() {
     topCollectionView.register(UINib(nibName: "TopCollectionVIewCell", bundle: nil), forCellWithReuseIdentifier: "TopCollectionVIewCell")
     bottomCollectionView.register(UINib(nibName: "BottomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BottomCollectionViewCell")
     topCollectionView.delegate = self
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
   
 }
 
-extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if collectionView == topCollectionView{
       return 5
@@ -73,7 +73,7 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         cell.priceOfBook.text = "$5"
         return cell
       }
-    }else if collectionView == bottomCollectionView{
+    } else if collectionView == bottomCollectionView {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BottomCollectionViewCell", for: indexPath)
       if let cell = cell as? BottomCollectionViewCell{
         cell.authorName.text = "Name"
