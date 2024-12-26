@@ -89,7 +89,7 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
       let width = collectionView.frame.width / 3
       let height = collectionView.frame.height
       return CGSize(width: width, height: height)
-    }else if collectionView == bottomCollectionView{
+    } else if collectionView == bottomCollectionView {
       let width = collectionView.frame.width / 3
       let height = collectionView.frame.height 
       return CGSize(width: width, height: height)

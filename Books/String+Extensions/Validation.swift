@@ -8,6 +8,7 @@
 import Foundation
 
 extension String{
+  
   func isValidPassword() -> Bool{
     let patern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{7,}"
     do{

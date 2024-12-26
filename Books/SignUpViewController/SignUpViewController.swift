@@ -23,8 +23,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     passwordTextField.delegate = self
     registerButtonOutlet.isEnabled = false
     activityIndicator.isHidden = true
-    
-  
   }
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -71,7 +69,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
          
   }
   
-  func saveUsersToUserDefaults(_ user: User){
+  private func saveUsersToUserDefaults(_ user: User){
     var users = fetchUsersFromUserDefault()
     users.append(user)
     if let enodedData = try? JSONEncoder().encode(users){
@@ -93,11 +91,5 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
   @IBAction func signInButton(_ sender: UIButton) {
     let vc = SignInViewController(nibName: "SignInViewController", bundle: nil)
     navigationController?.pushViewController(vc, animated: true)
-
-    
   }
-  
-  
-  
-  
 }

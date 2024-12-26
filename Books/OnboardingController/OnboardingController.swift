@@ -30,22 +30,23 @@ class OnboardingController: UIViewController {
     //collectionView.isPagingEnabled = true
     
     startCarousel()
-    
-    
   }
   @IBAction func testButton(_ sender: UIButton) {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyBoard.instantiateViewController(withIdentifier: "TabBarController")
     (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
   }
+  
   @IBAction func SignInController(_ sender: UIButton) {
     let vc = SignInViewController(nibName: "SignInViewController", bundle: nil)
     navigationController?.pushViewController(vc, animated: true)
   }
+  
   @IBAction func signUpButton(_ sender: UIButton) {
     let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
     navigationController?.pushViewController(vc, animated: true)
   }
+  
   @IBAction func pageControlChanged(_ sender: UIPageControl) {
     currentIndex = sender.currentPage
     let indexPath = IndexPath(row: currentIndex, section: 0)
@@ -88,9 +89,11 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDelega
     }
     return cell
   }
+  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     .init(width: collectionView.frame.width, height: collectionView.frame.height)
   }
+    
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     stopCaroucel()
     print("timer was Stopped")
