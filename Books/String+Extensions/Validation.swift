@@ -9,8 +9,7 @@ import Foundation
 
 extension String{
   
-  func isValidPassword() -> Bool{
-    
+  func isValidPassword() -> Bool {
     let patern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{7,}"
     do {
       let regex = try NSRegularExpression(pattern: patern)
@@ -22,7 +21,7 @@ extension String{
     return false
   }
   
-  func isValidEmail() -> Bool{
+  func isValidEmail() -> Bool {
     let pattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
     do{
       let regex = try NSRegularExpression(pattern: pattern)
