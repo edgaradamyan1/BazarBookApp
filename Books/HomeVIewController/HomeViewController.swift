@@ -11,8 +11,8 @@ import CoreData
 class HomeViewController: UIViewController {
   
   private let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: nil, action: #selector(searchBook))
-  let book: [Book] = []
   private let notificationButton = UIBarButtonItem(image: UIImage(named: "notification"), style: .plain, target: nil, action: #selector(pushNotification))
+  let book: [Book] = []
   let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
   
   @IBOutlet weak var topCollectionView: UICollectionView!
