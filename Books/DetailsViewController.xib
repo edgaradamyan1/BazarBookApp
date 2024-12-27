@@ -13,7 +13,7 @@
                 <outlet property="author" destination="KJJ-uR-rHl" id="SBg-j6-pg7"/>
                 <outlet property="countLabel" destination="k5N-Kk-s9k" id="qrL-VJ-95T"/>
                 <outlet property="imageOfBook" destination="d19-hu-wYO" id="gWd-hI-wgS"/>
-                <outlet property="price" destination="rog-T3-TjG" id="ooK-LB-bHv"/>
+                <outlet property="priceLabel" destination="rog-T3-TjG" id="QF7-3X-H5c"/>
                 <outlet property="titleOfBook" destination="uPg-Sv-rdG" id="Vlt-sm-lrt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="starImages" destination="uoM-RV-gCb" collectionClass="NSMutableArray" id="h7r-5y-alS"/>
@@ -137,7 +137,7 @@
                                 <color key="baseBackgroundColor" red="0.90980386729999996" green="0.90980386729999996" blue="0.90980386729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </buttonConfiguration>
                             <connections>
-                                <action selector="subtractCount:" destination="-1" eventType="touchUpInside" id="wc7-jh-g4U"/>
+                                <action selector="subtractCount:" destination="-1" eventType="touchUpInside" id="Z3u-6g-LJg"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5N-Kk-s9k">
@@ -169,7 +169,7 @@
                                 <action selector="addBook:" destination="-1" eventType="touchUpInside" id="Esd-7X-E0v"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="$ 39.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rog-T3-TjG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rog-T3-TjG">
                             <rect key="frame" x="91.333333333333314" y="0.0" width="71.666666666666686" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>

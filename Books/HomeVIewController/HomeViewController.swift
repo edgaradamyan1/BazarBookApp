@@ -122,7 +122,7 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(deleteCell(_:)))
         swipeGesture.direction = .up
-        
+        cell.addGestureRecognizer(swipeGesture)
         return cell
       }
     } else if collectionView == bottomCollectionView {
