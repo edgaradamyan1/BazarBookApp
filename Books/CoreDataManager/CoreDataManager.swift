@@ -16,12 +16,13 @@ class CoreDataManager{
   private let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
   
   
-  func addBook(title: String, author: String, price: String, image: String) -> Book {
+  func addBook(title: String, author: String, price: String, image: String, rating: String) -> Book {
     let newBook = Book(context: context )
     newBook.title = title
     newBook.price = price
     newBook.author = author
     newBook.image = image
+    newBook.rating = rating
     
     do{
       try context.save()

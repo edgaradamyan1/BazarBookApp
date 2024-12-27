@@ -22,12 +22,12 @@ class HomeViewController: UIViewController {
     title = "Home"
  
     setNavigationItem()
-    configureTableVIew()
+    configurCollectionView()
     books = CoreDataManager.shared.fetchBooks()
     topCollectionView.reloadData()
   }
   
-  func configureTableVIew() {
+  func configurCollectionView() {
     topCollectionView.register(UINib(nibName: "TopCollectionVIewCell", bundle: nil), forCellWithReuseIdentifier: "TopCollectionVIewCell")
     bottomCollectionView.register(UINib(nibName: "BottomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BottomCollectionViewCell")
     topCollectionView.delegate = self
@@ -51,6 +51,19 @@ class HomeViewController: UIViewController {
     
   }
   
+  @objc func deleteCell(_ gesture: UISwipeGestureRecognizer) {
+    guard let cell = gesture.view as? UICollectionViewCell,
+          let indexPath = topCollectionView.indexPath(for: cell) else { return }
+    let bookToRemove = books[indexPath.item]
+    CoreDataManager.shared.deleteBooks(book: bookToRemove)
+    books.remove(at: indexPath.item)
+    
+    topCollectionView.performBatchUpdates {
+      topCollectionView.deleteItems(at: [indexPath])
+    }
+  }
+
+  
   @IBAction func addBook(_ sender: UIButton) {
     let alert = UIAlertController(title: "Add Your Book", message: nil, preferredStyle: .alert)
     alert.addTextField { textField in
@@ -65,15 +78,19 @@ class HomeViewController: UIViewController {
     alert.addTextField { textField in
       textField.placeholder = "Price"
     }
+    alert.addTextField { textField in
+      textField.placeholder = "Rating"
+    }
     
     alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
       guard let self = self else { return }
       guard let title = alert.textFields?[0].text,
             let author = alert.textFields?[1].text,
-            let price = alert.textFields?[2].text,
-            let image = alert.textFields?[3].text else { return }
+            let image = alert.textFields?[2].text,
+            let price = alert.textFields?[3].text,
+            let rating = alert.textFields?[4].text else { return }
       
-      let book = CoreDataManager.shared.addBook(title: title, author: author, price: price, image: image)
+      let book = CoreDataManager.shared.addBook(title: title, author: author, price: price, image: image, rating: rating)
       self.books.append(book)
       self.topCollectionView.reloadData()
     }))
@@ -102,6 +119,10 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
       if let cell = cell as? TopCollectionVIewCell{
         let book = books[indexPath.item]
         cell.configure(book: book)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(deleteCell(_:)))
+        swipeGesture.direction = .up
+        
         return cell
       }
     } else if collectionView == bottomCollectionView {
@@ -131,21 +152,8 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let vc = DetailsViewController(nibName: "DetailsViewController", bundle: nil)
+    vc.selectedBook = books[indexPath.item]
     vc.modalPresentationStyle = .popover
     present(vc, animated: true)
   }
-  func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath) -> [UIContextualAction]? {
-    let deleteAction = UIContextualAction(style: .destructive, title: "delete") { [weak self] (action, view, completionHandler) in
-      guard let self = self else { return }
-      let deletedBook =  self.books[indexPath.item]
-      self.books.remove(at: indexPath.item)
-      CoreDataManager.shared.deleteBooks(book: deletedBook)
-      completionHandler(true)
-      collectionView.deleteItems(at: <#T##[IndexPath]#>)
-      topCollectionView.reloadData()
-    }
-    
-    return [deleteAction]
-  }
-  
 }
