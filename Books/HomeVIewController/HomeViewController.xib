@@ -44,13 +44,14 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-hz-CUl">
-                    <rect key="frame" x="30" y="698" width="80" height="80"/>
+                    <rect key="frame" x="30" y="708" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="MDK-O5-ffw"/>
                         <constraint firstAttribute="height" constant="80" id="RJU-9q-B6b"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled">
+                        <backgroundConfiguration key="background" cornerRadius="90"/>
                         <attributedString key="attributedTitle">
                             <fragment content="Add Book">
                                 <attributes>
@@ -62,12 +63,15 @@
                         </attributedString>
                         <color key="baseBackgroundColor" red="0.31764706970000001" green="0.25490197539999998" blue="0.52941179279999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="addBook:" destination="-1" eventType="touchUpInside" id="Fo3-Hn-yV5"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="l5j-hz-CUl" firstAttribute="top" secondItem="LnC-HI-ODk" secondAttribute="bottom" constant="30" id="RCp-uG-0ft"/>
+                <constraint firstItem="l5j-hz-CUl" firstAttribute="top" secondItem="LnC-HI-ODk" secondAttribute="bottom" constant="40" id="RCp-uG-0ft"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LnC-HI-ODk" secondAttribute="bottom" constant="150" id="W4o-3C-nO5"/>
                 <constraint firstItem="LnC-HI-ODk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="X85-P0-L0s"/>
                 <constraint firstItem="2S6-s0-07R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cJF-cY-xXP"/>
